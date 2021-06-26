@@ -1,32 +1,32 @@
 #!/usr/bin/python3
 """
-
+Manage file storage for BaseModel objects
 """
 from models.base_model import BaseModel
 import json
 
 class FileStorage():
     """
-
+    Serielizes and deserialiez to a JSON file and from a JSOn file
     """
     __file_path = "file.json"
     __objects = {}
 
     def all(self):
         """
-
+        Returns dictionary
         """
         return self.__objects
 
     def new(self, obj):
         """
-
+        Adds to dictionary
         """
         self.__objects["{}.{}".format(obj.__class__.__name__, obj.id)] = obj
 
     def save(self):
         """
-
+        Serializes objects to JSOn file
         """
         a_dict = {}
 
@@ -37,18 +37,13 @@ class FileStorage():
 
     def reload(self):
         """
-
+        Deserialies from JSON file
         """
-        a_dict = {}
-
         try:
-            with open(self.__file_path) as a_file:
-                for line in a_file:
-                    a_dict = json.load(line)
-
-            for key, value in a_dict.items():
-                BaseModel.__dict__[key] = value
-
-        except:
+            with open(self.__file_path, 'r') as a_file:
+                b_dict = json.load(a_file)
+                for key, value in b_dict.items():
+                    b_dict[key] = value
+        except FileNotFoundError:
             pass
 

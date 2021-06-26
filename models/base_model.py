@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-
+This module contains the BaseModel class for all instances
 """
 from datetime import datetime
 import uuid
@@ -8,11 +8,11 @@ import models
 
 class BaseModel():
     """
-
+    BaseModel class
     """
     def __init__(self, *args, **kwargs):
         """
-
+        Initialies BaseModel attributes
         """
         if len(kwargs) > 0:
             for key, value in kwargs.items():
@@ -33,20 +33,20 @@ class BaseModel():
 
     def __str__(self):
         """
-
+        String of a class
         """
         return ("[{}] ({}) {}".format(__class__.__name__, self.id, self.__dict__))
 
     def save(self):
         """
-
+        Saves an object to a JSON file
         """
         self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
         """
-
+        Returns a dictionary with key and values of __dict__
         """
         dictionary = dict(self.__dict__)
 
