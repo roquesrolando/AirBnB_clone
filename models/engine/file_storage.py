@@ -2,8 +2,8 @@
 """
 Manage file storage for BaseModel objects
 """
-from models.base_model import BaseModel
 import json
+from .. import classes
 
 class FileStorage():
     """
@@ -30,8 +30,9 @@ class FileStorage():
         """
         a_dict = {}
 
-        with open(self.__file_path, 'a') as a_file:
+        with open(self.__file_path, mode='w', encoding='UTF-8') as a_file:
             for key, value in self.__objects.items():
+                print(type(value))
                 a_dict[key] = value.to_dict()
             json.dump(a_dict, a_file)
 
@@ -40,10 +41,10 @@ class FileStorage():
         Deserialies from JSON file
         """
         try:
-            with open(self.__file_path, 'r') as a_file:
+            with open(self.__file_path, mode='r', encoding='UTF-8') as a_file:
                 b_dict = json.load(a_file)
-                for key, value in b_dict.items():
-                    b_dict[key] = value
+                for key in b_dict:
+                     self.__objects[key] = classes[b_dict[key]["__class__"]](**b_dict[key])
         except FileNotFoundError:
             pass
 
