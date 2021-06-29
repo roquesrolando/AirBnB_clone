@@ -114,6 +114,7 @@ class HBNBCommand(cmd.Cmd):
                 for clas, value in objs.items():
                     if args[1] == value.id:
                         setattr(value, args[2], args[3])
+                        storage.save()
 
         else:
             print("** class doesn't exist **")
