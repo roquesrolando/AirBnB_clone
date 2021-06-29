@@ -2,8 +2,9 @@
 """
 contains FileStorage instance
 """
+from models.user import User
 from models.base_model import BaseModel
-classes = {"BaseModel": BaseModel}
+classes = {"BaseModel": BaseModel, "User": User}
 
 try:
     from models.engine.file_storage import FileStorage
