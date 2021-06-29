@@ -84,8 +84,9 @@ class HBNBCommand(cmd.Cmd):
                 print(objs[key])
 
         elif args[0] in classes:
-            for key in objs[args[0]]:
-                print(objs[key])
+            for key, value in objs.items():
+                if key[0: key.index('.')] == args[0]:
+                    print(value)
 
 
     def do_update(self, line):
