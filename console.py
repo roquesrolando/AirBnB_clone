@@ -104,12 +104,12 @@ class HBNBCommand(cmd.Cmd):
         elif args[0] in classes:
             if len(args) < 2:
                 print("** instance id missing **")
+            elif key not in objs:
+                print("** no instance found **")
             elif len(args) < 3:
                 print("** atttribute name missing **")
             elif len(args) < 4:
                 print("** value missing **")
-            elif key not in objs:
-                print("** no instance found **")
             else:
                 for clas, value in objs.items():
                     if args[1] == value.id:
