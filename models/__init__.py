@@ -4,8 +4,11 @@ contains FileStorage instance
 """
 from models.base_model import BaseModel
 classes = {"BaseModel": BaseModel}
-from models.engine.file_storage import FileStorage
 
+try:
+    from models.engine.file_storage import FileStorage
+except:
+    pass
 
 storage = FileStorage()
 storage.reload()
