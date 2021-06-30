@@ -48,7 +48,7 @@ or updating an attribute
 $ ./console.py
 (hbnb) update <classname> <id> <attribute> <value>
 ```
-###show
+### show
 Shows the string representation of an instance based on the
 given Class and ID
 ```
