@@ -13,7 +13,7 @@ As described before once inside the console the user will be able to:
     destroy (delete)
     show
     update
-
+    all
 
 You can see all commands available by typing the help command as seen below:
 ```
@@ -48,7 +48,7 @@ or updating an attribute
 $ ./console.py
 (hbnb) update <classname> <id> <attribute> <value>
 ```
-### show
+### show:
 Shows the string representation of an instance based on the
 given Class and ID
 ```
@@ -56,13 +56,12 @@ $ ./console.py
 (hbnb) show <classname> <id>
 ```
 ## Unittest:
-The command to run all the unitest in the /test directory is as such:
+The command to run all the unitest in the tests/ directory is as such:
 ```
-$ python3 -m unittest discover test
+$ python3 -m unittest discover tests
 ```
 ## JSON:
 In this project we serialize and store dictionary in file.json 
 using the json format. Once the program has stored it we can 
 deserialize it from file.json and reloade it as a dictionary 
 for our purposes
-
