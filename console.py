@@ -52,7 +52,6 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class doesn't exist **")
 
-
     def do_destroy(self, line):
         """Deletes an instance based on the class name and id\n"""
         args = line.split()
@@ -87,7 +86,6 @@ class HBNBCommand(cmd.Cmd):
             for key, value in objs.items():
                 if key[0: key.index('.')] == args[0]:
                     print(value)
-
 
     def do_update(self, line):
         """Updates an instance based on the class name and id\n"""
