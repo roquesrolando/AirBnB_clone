@@ -16,7 +16,7 @@ class TestBaseModel(unittest.TestCase):
 
         style = pep8.StyleGuide(quiet=True)
         file_base_model = "models/base_model.py"
-        file_test_base_model = "tests/test_base_model.py"
+        file_test_base_model = "tests/test_models/test_base_model.py"
         check = style.check_files([file_base_model, file_test_base_model])
         self.assertEqual(check.total_errors, 0,
                          "Found code style errors (and warning).")

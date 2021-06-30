@@ -36,7 +36,11 @@ class HBNBCommand(cmd.Cmd):
         """Print string representation of instance\n"""
         args = line.split()
         objs = storage.all()
-        key = args[0] + "." + args[1]
+
+        try:
+            key = args[0] + "." + args[1]
+        except:
+            pass
 
         if len(line) == 0:
             print("** class name missing **")
@@ -56,7 +60,11 @@ class HBNBCommand(cmd.Cmd):
         """Deletes an instance based on the class name and id\n"""
         args = line.split()
         objs = storage.all()
-        key = args[0] + "." + args[1]
+
+        try:
+            key = args[0] + "." + args[1]
+        except:
+            pass
 
         if len(line) == 0:
             print("** class name missing **")
@@ -96,6 +104,7 @@ class HBNBCommand(cmd.Cmd):
             key = args[0] + "." + args[1]
         except:
             pass
+
         if len(line) == 0:
             print("** class name missing **")
 
@@ -105,7 +114,7 @@ class HBNBCommand(cmd.Cmd):
             elif key not in objs:
                 print("** no instance found **")
             elif len(args) < 3:
-                print("** atttribute name missing **")
+                print("** attribute name missing **")
             elif len(args) < 4:
                 print("** value missing **")
             else:
