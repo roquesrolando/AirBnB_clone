@@ -19,6 +19,7 @@
 	width: 25%;
 			}
 .popover {
+	position: relative;
 	visibility: hidden;
 	background-color: #FAFAFA;
 	border: 1px solid #DDDDDD;
