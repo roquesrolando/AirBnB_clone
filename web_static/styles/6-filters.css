@@ -7,6 +7,12 @@
 	display: flex;
 	align-items: center;
 }
+.filters ul {
+	list-style-type: none;
+	}
+.filters li {
+	margin: 5% 0;
+	}	
 .locations {
 	margin-left: 5%;
 	height: 100%;
